@@ -76,3 +76,6 @@ gem "slim-rails"
 # i18n
 gem "rack-contrib"
 gem "rails-i18n", "~> 7.0.0"
+
+gem "kaminari"
+
