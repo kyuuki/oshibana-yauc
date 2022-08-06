@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      item: 商品
+    attributes:
+      item:
+        number: 商品番号
+        name: 商品名

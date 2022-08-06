@@ -1,0 +1,12 @@
+h2.h4.mb-3 商品一覧
+
+table.table.table-bordered
+  thead.thead-light
+    tr
+      th style="width: 80px" 番号
+      th 商品名
+  tbody
+    - @items.each do |item|
+      == render item
+
+= link_to "新規登録", new_item_path, class: "btn btn-primary"

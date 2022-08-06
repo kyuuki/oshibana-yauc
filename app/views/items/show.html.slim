@@ -1,0 +1,20 @@
+h2.h4.mb-3 商品詳細
+
+.card
+  = form_with(model: @item) do |form|
+    .card-body
+      .form-group.row
+        = form.label :number, "商品番号", class: "col-sm-2 col-form-label"
+        .col-sm-4
+          = form.number_field :number, class: "form-control-plaintext", readonly: true
+
+      .form-group.row
+        = form.label :name, "商品名", class: "col-sm-2 col-form-label"
+        .col-sm-8
+          = form.text_field :name, class: "form-control-plaintext", readonly: true
+
+    .card-footer
+      .row
+        .col
+          = link_to "編集", edit_item_path(@item), class: "btn btn-primary mr-2"
+          = button_to "削除", @item, method: :delete, class: "btn btn-danger"
