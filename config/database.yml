@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: oshibana_yauc_production
-  username: oshibana_yauc
-  password: <%= ENV["OSHIBANA_YAUC_DATABASE_PASSWORD"] %>
+  #username: oshibana_yauc
+  #password: <%= ENV["OSHIBANA_YAUC_DATABASE_PASSWORD"] %>
