@@ -9,9 +9,21 @@ h2.h4.mb-3 商品詳細
           = form.number_field :number, class: "form-control-plaintext", readonly: true
 
       .form-group.row
-        = form.label :name, "商品名", class: "col-sm-2 col-form-label"
+        = form.label :name, "名前", class: "col-sm-2 col-form-label"
         .col-sm-8
           = form.text_field :name, class: "form-control-plaintext", readonly: true
+
+      .form-group.row
+        = form.label :yauc_name, "商品名", class: "col-sm-2 col-form-label"
+        .col-sm-8
+          = form.text_field :yauc_name, class: "form-control-plaintext", readonly: true
+
+      .form-group.row
+        label.col-sm-2.col-form-label HTML
+        .col-sm-8
+          text_area.form-control-plaintext size="20x10"
+            = safe_join(@item.yauc_detail_html.split("\n"), tag(:br))
+            / https://qiita.com/kmjooh/items/5c0e5be9307d0dc2785b
 
     .card-footer
       .row
