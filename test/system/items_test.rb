@@ -2,42 +2,64 @@ require "application_system_test_case"
 
 class ItemsTest < ApplicationSystemTestCase
   setup do
-    @item = items(:one)
+    @item = FactoryBot.create(:item)
   end
 
-  test "visiting the index" do
+  test "商品一覧ページ表示" do
     visit items_url
-    assert_selector "h1", text: "Items"
+    assert_selector "h2", text: "商品一覧"
   end
 
-  test "should create item" do
+  test "商品一覧ページ → 商品登録ページ表示" do
     visit items_url
-    click_on "New item"
-
-    fill_in "Name", with: @item.name
-    fill_in "Number", with: @item.number
-    click_on "Create Item"
-
-    assert_text "Item was successfully created"
-    click_on "Back"
+    click_on "新規登録"
+    assert_selector "h2", text: "商品登録"
   end
 
-  test "should update Item" do
+  # TODO: 一覧ページからの全部の画面遷移
+
+  test "商品保存" do
+    visit items_url
+    click_on "新規登録"
+
+    fill_in "商品番号", with: @item.number
+    fill_in "商品名", with: @item.name
+    click_on "保存"
+
+    # 成功すると一覧画面の戻る
+    assert_selector "h2", text: "商品一覧"
+    assert_text "登録しました。"
+
+    # TODO: DB チェック
+  end
+
+  test "商品更新" do
     visit item_url(@item)
-    click_on "Edit this item", match: :first
+    click_on "編集"
 
-    fill_in "Name", with: @item.name
-    fill_in "Number", with: @item.number
-    click_on "Update Item"
+    fill_in "商品番号", with: "1"
+    fill_in "商品名", with: "x"
+    click_on "保存"
 
-    assert_text "Item was successfully updated"
-    click_on "Back"
+    # 成功すると一覧画面の戻る
+    assert_selector "h2", text: "商品一覧"
+    assert_text "更新しました。"
+
+    # TODO: DB チェック
   end
 
-  test "should destroy Item" do
+  test "商品削除" do
     visit item_url(@item)
-    click_on "Destroy this item", match: :first
+    click_on "削除"
 
-    assert_text "Item was successfully destroyed"
+    # 成功すると一覧画面の戻る
+    assert_selector "h2", text: "商品一覧"
+    assert_text "削除しました。"
+
+    # TODO: DB チェック
   end
+
+  # TODO: どこまでテストするか
+  # TODO: i18n のブラウザ切り替え
+  # TODO: 軽い Validation エラーはここ？
 end
