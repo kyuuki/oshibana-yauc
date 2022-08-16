@@ -21,5 +21,8 @@ module OshibanaYauc
 
     # i18n
     config.middleware.use Rack::Locale
+
+    # 部分テンプレートを出力しない
+    config.action_view.logger = nil
   end
 end
