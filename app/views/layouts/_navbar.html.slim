@@ -11,6 +11,8 @@ nav.navbar.navbar-expand-md.navbar-dark.bg-dark
           a.nav-link href="/" Home
         li.nav-item
           = link_to("商品一覧", items_path, { class: "nav-link" })
+        li.nav-item
+          = link_to("出品中", "https://auctions.yahoo.co.jp/openuser/jp/show/mystatus?select=selling", { class: "nav-link", target: "_blank" })
       /ul.navbar-nav
         li.nav-item
           a.nav-link href="#" Link
