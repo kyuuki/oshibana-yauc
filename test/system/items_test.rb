@@ -28,7 +28,7 @@ class ItemsTest < ApplicationSystemTestCase
 
     # 成功すると一覧画面の戻る
     assert_selector "h2", text: "商品一覧"
-    assert_text "登録しました。"
+    assert_selector ".modal-dialog .alert", text: "登録しました。"
 
     # TODO: DB チェック
   end
@@ -43,7 +43,8 @@ class ItemsTest < ApplicationSystemTestCase
 
     # 成功すると一覧画面の戻る
     assert_selector "h2", text: "商品一覧"
-    assert_text "更新しました。"
+    #assert_text "更新しました。"  # タイミングによっては表示されていないことがあるので assert_selector でチェック
+    assert_selector ".modal-dialog .alert", text: "更新しました。"
 
     # TODO: DB チェック
   end
@@ -54,7 +55,7 @@ class ItemsTest < ApplicationSystemTestCase
 
     # 成功すると一覧画面の戻る
     assert_selector "h2", text: "商品一覧"
-    assert_text "削除しました。"
+    assert_selector ".modal-dialog .alert", text: "削除しました。"
 
     # TODO: DB チェック
   end
