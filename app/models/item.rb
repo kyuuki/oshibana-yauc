@@ -23,6 +23,7 @@ class Item < ApplicationRecord
 ・定形外郵便（送料 120 円）<BR>
 ※複数同時に落札された場合は<B> 1 つ分の送料 120 円のみで結構です</B>。差分はこちらで負担させていただきます。<BR>
 ※家庭の事情で発送が遅れる場合もございますので、速達など急ぎで商品を必要とされる方は入札をご遠慮ください。<BR>
+<IMG SRC="https://acc.akoba.xyz/acc.png">
     HTML
   end
 end
